@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: txemi
   description: simple apt based ansible role for check-mk agent 
