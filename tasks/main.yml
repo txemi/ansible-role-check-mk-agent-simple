@@ -1,0 +1,24 @@
+
+---
+# cmk agent
+
+- name: Install check_mk_agent
+  package:
+    state: latest
+    name: "{{ item }}"
+    # state=present
+  with_items:
+    - check-mk-agent
+    - xinetd
+    - nagios-plugins-basic
+  become: yes
+
+- name: Configure xinetd for check_mk
+  lineinfile: 
+    dest: /etc/xinetd.d/check_mk
+    regexp: "disable"
+    line: "disable = no"
+  notify: restart xinetd
+  become: yes
+
+
