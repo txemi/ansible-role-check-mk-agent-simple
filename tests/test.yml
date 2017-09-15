@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - check-mk-agent-apt-simple
+    - ansible-role-check-mk-agent-simple
